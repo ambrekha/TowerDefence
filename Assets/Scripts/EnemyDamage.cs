@@ -7,6 +7,9 @@ public class EnemyDamage : MonoBehaviour
 {
 
     [SerializeField] int hitPoints = 10;
+    [SerializeField] ParticleSystem hitParticle;
+    [SerializeField] ParticleSystem deathParticle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,11 +27,14 @@ public class EnemyDamage : MonoBehaviour
 
     private void KillEnemy()
     {
+        var vfx = Instantiate(deathParticle, transform.position, Quaternion.identity);
+        vfx.Play();
         Destroy(gameObject);
     }
 
     void ProcessHit()
     {
         hitPoints = hitPoints - 1;
+        hitParticle.Play();
     }
 }
