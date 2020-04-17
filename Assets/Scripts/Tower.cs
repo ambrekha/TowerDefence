@@ -6,6 +6,7 @@ public class Tower : MonoBehaviour
     [SerializeField] Transform objectToMove;
     [SerializeField] float attackRange = 10f;
     [SerializeField] ParticleSystem projectileParticle;
+    public Waypoint baseWaypoint; // block the tower stands on
 
     // State of each tower
     Transform targetEnemy;
